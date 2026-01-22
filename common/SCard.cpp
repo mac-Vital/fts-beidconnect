@@ -256,6 +256,7 @@ int getProtocol(const unsigned char* in, int size) {
     const unsigned char* p = in;
     int protocol = SCARD_PROTOCOL_T0;
 
+    p++; //skip TS
     // first byte = T0; if no further TDx present => T=0
     if ( ((*p) & 0x80) == 0 ) {
         return SCARD_PROTOCOL_T0;
